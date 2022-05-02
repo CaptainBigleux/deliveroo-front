@@ -9,6 +9,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  background-color: #f3f5f5;
+}
+
 .app {
   height: 100vh;
   display: flex;
@@ -51,6 +55,7 @@ header {
   align-items: center;
   padding: 10px 32px;
   border-bottom: 1px solid lightgrey;
+  background-color: #fff;
 }
 .logo {
   width: 150px;
@@ -63,6 +68,7 @@ footer {
   justify-content: center;
   align-items: center;
   border-top: 1px solid lightgrey;
+  background-color: #fff;
 }
 
 .container {
@@ -70,9 +76,148 @@ footer {
   margin: 0 auto;
 }
 
+.menu-shopping-cart {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
 .dark-mode {
-  background-color: black;
+  background-color: black !important;
   color: white;
+}
+
+.restaurant-info-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 257px;
+  background-color: #fff;
+  padding: 10px 32px;
+}
+
+.restaurant-main-info {
+  flex: 69%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.restaurant-main-info h1 {
+  flex: 40%;
+  margin-top: 40px;
+}
+
+.restaurant-main-info p {
+  flex: 70%;
+}
+
+.restaurant-image-holder {
+  flex: 31%;
+  padding: 10px;
+}
+
+.restaurant-image {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.menu-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 70%;
+  gap: 30px;
+}
+
+.meal-category-holder {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.meal-category-holder h2 {
+  margin: 20px 0;
+}
+
+.meals-information-holder {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 19px;
+}
+
+.shopping-cart-holder {
+  flex: 30%;
+  height: 100%;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fff;
+  min-height: 185px;
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+
+.sc-btn {
+  height: 50px;
+  width: 95%;
+  background-color: #00cdbd;
+  border-radius: 5px;
+}
+
+.sc-btn:disabled {
+  background-color: #bac3c3;
+  cursor: default;
+}
+
+.meal-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  width: 400px;
+  height: 160px;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+.meal-info-holder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  margin-right: 15px;
+}
+
+.meal-info-holder p {
+  flex-wrap: wrap;
+  overflow-y: hidden;
+  width: 100%;
+  height: 40px;
+}
+
+.meal-info-holder > div > span:first-child {
+  margin-right: 20px;
+}
+
+.meal-info-holder > div > span:last-child {
+  color: orangered;
+  font-weight: bold;
+}
+
+.meal-image {
+  width: 133px;
+  height: 133px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 .display-none {
