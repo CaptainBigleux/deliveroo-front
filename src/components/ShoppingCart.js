@@ -8,18 +8,75 @@ const ShoppingCart = ({ darkMode, shoppingCart, setShoppingCart }) => {
   // ]
 
   const [total, setTotal] = useState(0);
+
   const deliveryFee = 2.5;
+
   const getTotal = () => {
     let price = 0;
     for (let i = 0; i < shoppingCart.length; i++) {
       price += Number(shoppingCart[i].price);
     }
-    setTotal(parseFloat((price += 2.5)).toFixed(2));
+
+    setTotal(price);
   };
 
   useEffect(() => {
     getTotal();
   }, [shoppingCart]);
+
+  const handleRemoveItem = (index) => {
+    if (shoppingCart[index].quantity === 1) {
+      setShoppingCart((prevState) => {
+        const newCart = [...prevState];
+        newCart.splice(index, 1);
+        return newCart;
+      });
+    } else {
+      const individualPrice =
+        Number(shoppingCart[index].price) /
+        Number(shoppingCart[index].quantity);
+      const newPrice =
+        Number(shoppingCart[index].price) - Number(individualPrice);
+
+      setShoppingCart((prevState) =>
+        prevState.map((item, indexMap) =>
+          indexMap === index
+            ? {
+                ...item,
+                quantity: shoppingCart[index].quantity - 1,
+                price: newPrice,
+              }
+            : item
+        )
+      );
+    }
+  };
+
+  const handleAddItem = (index) => {
+    const individualPrice =
+      Number(shoppingCart[index].price) / Number(shoppingCart[index].quantity);
+
+    const newPrice =
+      Number(shoppingCart[index].price) + Number(individualPrice);
+
+    setShoppingCart((prevState) =>
+      prevState.map((item, indexMap) =>
+        indexMap === index
+          ? {
+              ...item,
+              quantity: shoppingCart[index].quantity + 1,
+              price: newPrice,
+            }
+          : item
+      )
+    );
+
+    // const newArr = [...shoppingCart];
+    // console.log(newArr[index]);
+    // newArr[index].quantity++;
+    // newArr[index].price += individualPrice;
+    // setShoppingCart(newArr);
+  };
 
   return (
     <aside className={`shopping-cart-holder${darkMode ? " dark-mode" : ""}`}>
@@ -36,9 +93,21 @@ const ShoppingCart = ({ darkMode, shoppingCart, setShoppingCart }) => {
             <div key={index} className="top-half-cart-holder">
               <div className="cart-items-holder">
                 <span>
-                  <button>-</button>
+                  <button
+                    onClick={() => {
+                      handleRemoveItem(index);
+                    }}
+                  >
+                    -
+                  </button>
                   <span>{quantity}</span>
-                  <button>+</button>
+                  <button
+                    onClick={() => {
+                      handleAddItem(index);
+                    }}
+                  >
+                    +
+                  </button>
                 </span>
                 <span>{title}</span>
                 <span>{parseFloat(price).toFixed(2)}€</span>
@@ -54,7 +123,7 @@ const ShoppingCart = ({ darkMode, shoppingCart, setShoppingCart }) => {
           <div className="cart-price-display">
             <p>
               <span>Sous-total</span>
-              <span>{parseFloat(total - deliveryFee).toFixed(2)}€</span>
+              <span>{parseFloat(total).toFixed(2)}€</span>
             </p>
             <p>
               <span>Frais de livraison</span>
@@ -63,7 +132,7 @@ const ShoppingCart = ({ darkMode, shoppingCart, setShoppingCart }) => {
           </div>
           <div className="cart-total-price">
             <span>Total</span>
-            <span>{parseFloat(total + 2.5).toFixed(2)}€</span>
+            <span>{parseFloat(total + deliveryFee).toFixed(2)}€</span>
           </div>
         </div>
       ) : null}
