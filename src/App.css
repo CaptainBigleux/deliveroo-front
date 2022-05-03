@@ -14,17 +14,17 @@ body {
 }
 
 .app {
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 .app-dark {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   color: white;
   background-color: black;
+  min-height: 100vh;
 }
 
 button,
@@ -53,7 +53,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 32px;
+  padding: 30px 32px;
   border-bottom: 1px solid lightgrey;
   background-color: #fff;
 }
@@ -114,14 +114,15 @@ footer {
 }
 
 .restaurant-image-holder {
-  flex: 31%;
-  padding: 10px;
+  flex: 30%;
+  height: 100%;
 }
 
 .restaurant-image {
   width: 100%;
   object-fit: cover;
   border-radius: 5px;
+  height: 100%;
 }
 
 .menu-holder {
@@ -131,6 +132,7 @@ footer {
   flex-direction: column;
   flex: 70%;
   gap: 30px;
+  margin-bottom: 30px;
 }
 
 .meal-category-holder {
@@ -162,6 +164,7 @@ footer {
   width: 100%;
   margin-top: 30px;
   border-radius: 5px;
+  margin-left: 30px;
 }
 
 .sc-btn {
@@ -169,6 +172,7 @@ footer {
   width: 95%;
   background-color: #00cdbd;
   border-radius: 5px;
+  margin-top: 10px;
 }
 
 .sc-btn:disabled {
@@ -218,6 +222,44 @@ footer {
   height: 133px;
   object-fit: cover;
   border-radius: 5px;
+}
+
+.top-half-cart-holder,
+.bottom-half-cart-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cart-items-holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.cart-price-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cart-price-display p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.cart-total-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .display-none {

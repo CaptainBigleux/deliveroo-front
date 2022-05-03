@@ -1,7 +1,7 @@
 import React from "react";
 import Meals from "./Meals";
 
-const Menu = ({ darkMode, categories }) => {
+const Menu = ({ darkMode, categories, shoppingCart, setShoppingCart }) => {
   return (
     <div className={`menu-holder${darkMode ? " dark-mode" : ""}`}>
       {categories.map((cat, index) => {
@@ -12,7 +12,12 @@ const Menu = ({ darkMode, categories }) => {
               className={`meal-category-holder${darkMode ? " dark-mode" : ""}`}
             >
               <h2>{cat.name}</h2>
-              <Meals meals={cat.meals} darkMode={darkMode} />
+              <Meals
+                meals={cat.meals}
+                darkMode={darkMode}
+                shoppingCart={shoppingCart}
+                setShoppingCart={setShoppingCart}
+              />
             </div>
           );
         else return null;

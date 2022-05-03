@@ -14,6 +14,7 @@ const App = () => {
   const [restaurant, setRestaurant] = useState({});
   const [isLoading, setisLoading] = useState(true);
   const [categories, setCategories] = useState([]);
+  const [shoppingCart, setShoppingCart] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,15 +43,24 @@ const App = () => {
       {!isLoading ? (
         <div className={darkMode ? "container dark-mode" : "container"}>
           <div className="menu-shopping-cart">
-            <Menu categories={categories} darkMode={darkMode} />
-            <ShoppingCart darkMode={darkMode} />
+            <Menu
+              categories={categories}
+              darkMode={darkMode}
+              shoppingCart={shoppingCart}
+              setShoppingCart={setShoppingCart}
+            />
+            <ShoppingCart
+              darkMode={darkMode}
+              shoppingCart={shoppingCart}
+              setShoppingCart={setShoppingCart}
+            />
           </div>
+          <Footer
+            title="Réplique de déliveroo créée par Adrien Callioni"
+            darkMode={darkMode}
+          />
         </div>
       ) : null}
-      <Footer
-        title="Réplique de déliveroo créée par Adrien Callioni"
-        darkMode={darkMode}
-      />
     </div>
   );
 };
