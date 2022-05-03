@@ -157,7 +157,6 @@ footer {
   position: -webkit-sticky;
   top: 0;
   display: flex;
-  align-items: center;
   flex-direction: column;
   background-color: #fff;
   min-height: 185px;
@@ -165,6 +164,8 @@ footer {
   margin-top: 30px;
   border-radius: 5px;
   margin-left: 30px;
+  align-items: stretch;
+  padding: 10px;
 }
 
 .sc-btn {
@@ -172,7 +173,7 @@ footer {
   width: 95%;
   background-color: #00cdbd;
   border-radius: 5px;
-  margin-top: 10px;
+  margin: 10px auto 0 auto;
 }
 
 .sc-btn:disabled {
@@ -227,10 +228,19 @@ footer {
 .top-half-cart-holder,
 .bottom-half-cart-holder {
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
+}
+
+.top-half-cart-holder {
+  overflow-x: scroll;
+  height: 300px;
+  margin: 5px 0;
+}
+
+.bottom-half-cart-holder {
+  margin: auto;
 }
 
 .cart-items-holder {
@@ -238,6 +248,29 @@ footer {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin: 5px 0;
+}
+
+.cart-items-holder button {
+  width: 20px;
+  height: 20px;
+  border: 1px #00cdbd solid;
+  color: #00cdbd;
+  border-radius: 50%;
+}
+
+.cart-btn-holder {
+  flex: 10%;
+}
+
+.cart-item-title {
+  flex: 60%;
+  overflow-x: hidden;
+  flex-wrap: wrap;
+}
+
+.cart-item-price {
+  flex: 10%;
 }
 
 .cart-price-display {
@@ -246,6 +279,9 @@ footer {
   align-items: center;
   flex-direction: column;
   width: 100%;
+  border-top: 1px grey solid;
+  margin: 10px 0;
+  padding-top: 10px;
 }
 
 .cart-price-display p {
@@ -253,6 +289,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin: 10px 0;
 }
 
 .cart-total-price {
@@ -260,6 +297,10 @@ footer {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  border-top: 1px grey solid;
+  font-weight: bold;
+  margin: 10px 0;
+  padding-top: 10px;
 }
 
 .display-none {

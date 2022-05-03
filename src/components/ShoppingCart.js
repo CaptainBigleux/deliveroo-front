@@ -86,19 +86,19 @@ const ShoppingCart = ({ darkMode, shoppingCart, setShoppingCart }) => {
       >
         Valider votre panier
       </button>
-      {shoppingCart.length !== 0 ? (
-        shoppingCart.map((item, index) => {
-          const { title, price, quantity } = item;
-          return (
-            <div key={index} className="top-half-cart-holder">
-              <div className="cart-items-holder">
-                <span>
+      <div className="top-half-cart-holder">
+        {shoppingCart.length !== 0 ? (
+          shoppingCart.map((item, index) => {
+            const { title, price, quantity } = item;
+            return (
+              <div key={index} className="cart-items-holder">
+                <span className="cart-btn-holder">
                   <button
                     onClick={() => {
                       handleRemoveItem(index);
                     }}
                   >
-                    -
+                    －
                   </button>
                   <span>{quantity}</span>
                   <button
@@ -106,18 +106,22 @@ const ShoppingCart = ({ darkMode, shoppingCart, setShoppingCart }) => {
                       handleAddItem(index);
                     }}
                   >
-                    +
+                    ✚
                   </button>
                 </span>
-                <span>{title}</span>
-                <span>{parseFloat(price).toFixed(2)}€</span>
+                <span className="cart-item-title">{title}</span>
+                <span className="cart-item-price">
+                  {parseFloat(price).toFixed(2)}€
+                </span>
               </div>
-            </div>
-          );
-        })
-      ) : (
-        <div>Votre panier est vide</div>
-      )}
+            );
+          })
+        ) : (
+          <div className="bottom-half-cart-holder">
+            <p>Votre panier est vide</p>
+          </div>
+        )}
+      </div>
       {shoppingCart.length !== 0 ? (
         <div className="bottom-half-cart-holder">
           <div className="cart-price-display">
