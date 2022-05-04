@@ -86,7 +86,14 @@ const ShoppingCart = ({ darkMode, shoppingCart, setShoppingCart }) => {
       >
         Valider votre panier
       </button>
-      <div className="top-half-cart-holder">
+      <div
+        //hide scrollbar when there are not enough items in the shopping cart
+        className={
+          shoppingCart.length < 8
+            ? "top-half-cart-holder disable-scrollbar"
+            : "top-half-cart-holder"
+        }
+      >
         {shoppingCart.length !== 0 ? (
           shoppingCart.map((item, index) => {
             const { title, price, quantity } = item;
