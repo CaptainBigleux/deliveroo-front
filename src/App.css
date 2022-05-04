@@ -234,8 +234,8 @@ footer {
 }
 
 .top-half-cart-holder {
-  overflow-x: scroll;
-  height: 300px;
+  overflow-y: scroll;
+  max-height: 300px;
   margin: 5px 0;
 }
 
