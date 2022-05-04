@@ -11,16 +11,15 @@ const ShoppingCart = ({ darkMode, shoppingCart, setShoppingCart }) => {
 
   const deliveryFee = 2.5;
 
-  const getTotal = () => {
-    let price = 0;
-    for (let i = 0; i < shoppingCart.length; i++) {
-      price += Number(shoppingCart[i].price);
-    }
-
-    setTotal(price);
-  };
-
   useEffect(() => {
+    const getTotal = () => {
+      let price = 0;
+      for (let i = 0; i < shoppingCart.length; i++) {
+        price += Number(shoppingCart[i].price);
+      }
+
+      setTotal(price);
+    };
     getTotal();
   }, [shoppingCart]);
 
